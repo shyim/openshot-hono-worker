@@ -1,0 +1,39 @@
+{
+	"name": "openshot-hono-worker",
+	"version": "1.0.0",
+	"description": "Screendrop Cloud — screenshot sharing powered by Cloudflare Workers, R2, and D1",
+	"dependencies": {
+		"hono": "4.11.1"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "1.15.3",
+		"@types/node": "24.10.1",
+		"typescript": "5.8.3",
+		"vite": "^6.0.0",
+		"wrangler": "4.88.0"
+	},
+	"private": true,
+	"cloudflare": {
+		"bindings": {
+			"UPLOAD_TOKEN": {
+				"description": "Shared secret used to authenticate uploads from the Screendrop app. **Open Screendrop → Settings → Cloud, copy the generated token, and paste it here.** Do not leave this blank."
+			},
+			"AUTHOR_NAME": {
+				"description": "Optional. Display name shown on shared pages (falls back to `Anonymous`)."
+			},
+			"AUTHOR_AVATAR": {
+				"description": "Optional. Avatar URL shown on shared pages, e.g. `https://github.com/your-username.png`."
+			}
+		}
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite build && vite preview",
+		"deploy": "wrangler deploy",
+		"db:migrate:local": "wrangler d1 migrations apply DB --local",
+		"db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+		"cf-typegen": "wrangler types"
+	},
+	"type": "module"
+}
