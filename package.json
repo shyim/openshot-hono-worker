@@ -6,11 +6,11 @@
 		"hono": "4.11.1"
 	},
 	"devDependencies": {
-		"@cloudflare/vite-plugin": "1.15.3",
+		"@cloudflare/vite-plugin": "1.42.1",
 		"@types/node": "24.10.1",
 		"typescript": "5.8.3",
 		"vite": "^6.0.0",
-		"wrangler": "4.88.0"
+		"wrangler": "4.103.0"
 	},
 	"private": true,
 	"cloudflare": {
